@@ -2,6 +2,7 @@ import pygame
 
 from Classes import VerticalLine, HorizontalLine, Cell, Game
 from typing import Dict, Tuple
+print("Leave empty for default config")
 scale = input("Scale (Default 10): ")
 if scale == "":
     scale = 10
