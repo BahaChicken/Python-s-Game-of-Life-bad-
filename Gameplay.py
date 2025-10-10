@@ -2,9 +2,21 @@ import pygame
 
 from Classes import VerticalLine, HorizontalLine, Cell, Game
 from typing import Dict, Tuple
-scale = int(input("Scale: "))
-Horizontal = int(input("Horizontal length: "))
-Vertical = int(input("Vertical length: "))
+scale = input("Scale (Default 10): ")
+if scale == "":
+    scale = 10
+else:
+    scale = int(scale)
+Horizontal = input("Horizontal length (Default 10): ")
+if Horizontal == "":
+    Horizontal = 10
+else:
+    Horizontal = int(Horizontal)
+Vertical = input("Vertical length (default): ")
+if Vertical == "":
+    Vertical = 10
+else:
+    Vertical = int(Vertical)
 pygame.init()
 screen = pygame.display.set_mode(((6 * Horizontal - 1) * scale, (6 * Vertical - 1) * scale))
 pygame.display.set_caption("Conway")
