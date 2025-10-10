@@ -32,6 +32,7 @@ class Cell():
         self.isAlive = state
         self.willLive = willLive
 class Game:
-    def __init__(self, auto = True, step = False):
+    def __init__(self, auto = False, step = False, FFD = False):
         self.auto = bool(auto)
         self.step = bool(step)
+        self.FFD = bool(FFD)

@@ -95,7 +95,7 @@ Cells[Horizontal - 2, Vertical * 3 // 5].isAlive = True
 for i in range(2, Horizontal - 2):
     Cells[i, Vertical * 7 // 10].isAlive = True
 numOfAlive = 0
-Game = Game(False, False)
+Game = Game(False, False, False)
 Mouse = None
 while True:
     for event in pygame.event.get():
@@ -106,6 +106,14 @@ while True:
             Game.auto = not Game.auto
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             Game.step = True
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+            Game.FFD = not Game.FFD
+        if event.type == pygame.MOUSEBUTTONDOWN and not Game.auto:
+            Mouse = pygame.mouse.get_pos()
+            for Cell in Cells.values():
+                if Cell.rect.collidepoint(Mouse) and pygame.mouse.get_pressed()[0]:
+                    Cell.isAlive = not Cell.isAlive
+                    Cell.willLive = not Cell.willLive
 
     screen.fill("Black")
     for line in VerticalLines.values():
@@ -116,8 +124,7 @@ while True:
     if not Game.auto:
         Mouse = pygame.mouse.get_pos()
         for Cell in Cells.values():
-            pygame.event.get()
-            if Cell.rect.collidepoint(Mouse) and pygame.mouse.get_pressed()[0]:
+            if Cell.rect.collidepoint(Mouse) and pygame.mouse.get_pressed()[2]:
                 Cell.isAlive = not Cell.isAlive
                 Cell.willLive = not Cell.willLive
     for cell in Cells.values():
@@ -149,4 +156,7 @@ while True:
         else:
             cell.isAlive = False
     pygame.display.update()
-    clock.tick(30)
+    if Game.FFD:
+        clock.tick(30)
+    else:
+        clock.tick(5)
