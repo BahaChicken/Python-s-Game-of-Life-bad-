@@ -95,7 +95,7 @@ Cells[Horizontal - 2, Vertical * 3 // 5].isAlive = True
 for i in range(2, Horizontal - 2):
     Cells[i, Vertical * 7 // 10].isAlive = True
 numOfAlive = 0
-Game = Game(False, False, False)
+Game = Game(False, False, True)
 Mouse = None
 while True:
     for event in pygame.event.get():
