@@ -90,8 +90,8 @@ for cell in Cells.values():
 space = Horizontal // 5
 Cells[space, Vertical // 5].isAlive = True
 Cells[Horizontal - space - 1, Vertical // 5].isAlive = True
-Cells[1, Vertical * 3 // 5].isAlive = True
-Cells[Horizontal - 2, Vertical * 3 // 5].isAlive = True
+Cells[1, Vertical * 7 // 10 - 1].isAlive = True
+Cells[Horizontal - 2, Vertical * 7 // 10 - 1].isAlive = True
 for i in range(2, Horizontal - 2):
     Cells[i, Vertical * 7 // 10].isAlive = True
 numOfAlive = 0
